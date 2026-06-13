@@ -1,0 +1,21 @@
+.env
+.env.bak
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.duckdb
+data/*.duckdb.wal
+data/*.duckdb-wal
+.DS_Store
+*.egg-info/
+
+# Generated runtime artifacts — regenerated daily, large, not source-of-truth.
+alerts/
+reports/*.pdf
+reports/example_*
+# Scratch / debugging report renders — canonical outputs are <date>_daily[_hk].md
+reports/*.preview.*
+reports/*.regen.*
+reports/*.overview.*
+reports/*_finding.md

@@ -1,0 +1,10 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Generated reports
+reports/

@@ -1,0 +1,46 @@
+# Unified dependencies for the whole investor_agent repo (single root .venv).
+# Merged from the three sub-projects + the orchestrator. Where versions
+# overlapped, the strictest floor wins (e.g. yfinance>=1.4.1).
+
+# --- core / config ---
+pyyaml>=6.0.2
+pydantic>=2.5
+python-dateutil>=2.8
+pytz>=2024.1
+click>=8.1.7
+requests>=2.31
+schedule>=1.2
+
+# --- market data ---
+yfinance>=1.4.1                 # 0.2.x is broken vs current Yahoo API (rotation requires >=1.4.1)
+finnhub-python>=2.4
+fredapi>=0.5
+beautifulsoup4>=4.12            # risk_analysis scrapers
+
+# --- numerics / storage ---
+pandas>=2.2.2
+numpy>=1.26
+duckdb>=1.0.0
+pandas-market-calendars>=4.4.0
+
+# --- LLM client (DeepSeek via OpenAI-compatible API) ---
+openai>=1.40
+
+# --- report rendering ---
+markdown>=3.5
+fpdf2>=2.8                         # used by capital_rotation_analysier's own PDF reports
+openpyxl>=3.1
+# Orchestrator report PDFs (web-grade HTML+CSS). NEEDS native libs:
+#   macOS:  brew install pango
+#   Debian: apt-get install libpango-1.0-0 libpangoft2-1.0-0
+weasyprint>=60
+
+# --- dashboard (stock_analysier) ---
+streamlit>=1.35
+plotly>=5.20
+
+# --- scheduler ---
+apscheduler>=3.10
+
+# --- dev / test ---
+pytest>=8.0

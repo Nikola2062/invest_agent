@@ -1,0 +1,55 @@
+# Phase 6 — Technical Division config.
+#
+# Five chart agents (4 deterministic + 1 small-LLM) that run in PARALLEL with the
+# fundamental pipeline and are BLINDED from fundamental output. See PHASE_6_PLAN.md.
+#
+# Sector→ETF map is the most important user-tunable bit — adjust as new sector ETFs
+# become more representative for the holdings in `config/portfolio.yaml`.
+
+structure:
+  pivot_window_bars: 5            # N-bar fractal: a swing high is a bar with the highest high vs N bars each side
+  pivots_to_evaluate: 8           # last K pivots used to classify trend (HH/HL vs LH/LL)
+
+volume:
+  obv_lookback_days: 60           # window for OBV slope regression
+  expansion_window_short: 20      # 20-day avg volume
+  expansion_window_long: 50       # vs 50-day avg → expansion / contraction
+
+cost_basis:
+  lookback_days: 365              # 1-year volume-by-price histogram
+  hvn_min_volume_pct: 5.0         # bucket must hold ≥5% of total volume to count as an HVN
+  bucket_pct_width: 1.0           # 1%-wide price buckets
+
+relative_strength:
+  windows_days: [90, 365]
+  benchmarks:
+    US:
+      market_index: SPY
+      sector_etfs:
+        Technology: IGV
+        Communication Services: XLC
+        Healthcare: XLV
+        Financial Services: XLF
+        Consumer Cyclical: XLY
+        Consumer Defensive: XLP
+        Energy: XLE
+        Industrials: XLI
+        Utilities: XLU
+        Real Estate: XLRE
+        Basic Materials: XLB
+    HK:
+      market_index: "^HSI"
+      sector_etfs:
+        Technology: KWEB
+        Communication Services: KWEB
+        Financial Services: "2800.HK"
+        Consumer Cyclical: FXI
+
+price_map:
+  enable: true                    # set false to skip the LLM synthesizer (deterministic-only fallback)
+
+integration:
+  tactical_persistence_boost: true   # downtrend + distribution = +1 persistence-day boost
+  order_anchor_to_price_map: true    # rebuy band anchors to price_map.key_support when usable
+  max_band_anchor_distance_pct: 30.0 # support must be at most this % below current to be usable
+  min_band_anchor_distance_pct: 5.0  # ...and at least this far below (else fall back to %-band)

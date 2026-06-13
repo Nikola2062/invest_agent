@@ -1,0 +1,27 @@
+# When to push Telegram digests. All times are LOCAL to the host running the scheduler.
+# Defaults assume host in Berlin (CET/CEST).
+#
+# Cadence philosophy (matches the long-term + tactical-exit posture):
+#   - ONE daily digest, after both markets have closed for the day.
+#   - The digest sends ONLY if at least one position has a tactical action,
+#     a watchlist entry is BUY_NOW / WAIT_FOR_PRICE, or thesis-break alerts
+#     are pending. Quiet days produce zero Telegram noise.
+#   - Out-of-band intraday alerts (rebuy-band entry, intraday drop/spike,
+#     intrinsic crosses, thesis breaks) are pushed by the intraday monitor as
+#     they occur — independent of this digest cadence.
+#
+# To go back to multi-push behavior, add more entries; to make any single push
+# unconditional, set send_only_if_action: false on it.
+
+host_timezone: "Europe/Berlin"
+
+pushes:
+  - name: daily_digest
+    cron: "30 22 * * 1-5"         # 22:30 Berlin Mon-Fri (after US close)
+    market: ALL                   # ALL = no per-market filter; render every market in one digest
+    purpose: "End-of-day digest — held + watchlist actions"
+    detail_level: brief
+    send_only_if_action: true
+
+# Dashboard refresh — how often the local Streamlit dashboard re-pulls data while open.
+dashboard_refresh_seconds: 300

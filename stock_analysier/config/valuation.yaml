@@ -1,0 +1,28 @@
+# Valuation defaults — used by the deterministic DCF anchor in src/agents/valuation.py
+# and the entry-decision thresholds in src/agents/order_generator.py.
+#
+# Previously these values were hardcoded. Pulling them into config lets a Tencent
+# (HK, high geopolitical risk) and a Figma (US software) get sensibly-different
+# discount rates without code changes.
+
+dcf:
+  # Cross-market defaults — overridden by per-market entries below where applicable.
+  default:
+    terminal_growth: 0.025          # 2.5% terminal — slightly above long-run inflation
+    discount_rate: 0.10             # 10% WACC proxy
+    growth_cap_y1_5: 0.25           # cap explicit-phase growth at 25%
+    growth_floor_y1_5: -0.05        # floor at -5% (turning around)
+    fallback_growth_y1_5: 0.05      # used when earnings_growth_yoy AND revenue_growth_yoy are both missing
+  per_market:
+    US:
+      discount_rate: 0.09           # US large-cap WACC proxy
+      terminal_growth: 0.025
+    HK:
+      discount_rate: 0.12           # geopolitical / regulatory risk premium
+      terminal_growth: 0.020        # slower mature-market growth
+
+# If-not-held entry-decision thresholds (used by order_generator.generate_entry_orders)
+entry_decision:
+  margin_of_safety_required_pct: 20.0     # BUY_NOW requires MoS >= this
+  wait_band_discount_pct: 10.0            # WAIT_FOR_PRICE places resting limit at intrinsic_low * (1 - this/100)
+  default_position_size_pct: 5.0          # % of available cash to deploy per BUY

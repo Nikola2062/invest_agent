@@ -1,0 +1,6 @@
+# Dev-only dependencies (testing, linting). Not needed for runtime.
+#
+# Install: pip install -r requirements.txt -r requirements-dev.txt
+# Editable + dev: pip install -e ".[dev]"
+
+pytest>=9.0

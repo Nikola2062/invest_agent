@@ -1,0 +1,117 @@
+storage:
+  duckdb_path: data/rotation.duckdb
+
+# Reports: optional post-send automation (off by default).
+# When `auto_commit: true`, after both the US and HK PDFs have shipped to
+# Telegram, the pipeline runs `git add reports/<date>_daily*.{md,pdf}` and
+# `git commit` with a fixed message. Never `git add -A`, never auto-pushes.
+# `auto_commit_skip_on_degraded` (default true) suppresses the commit when
+# the run was logged `degraded` (signals not published) — degraded reports
+# shouldn't pollute git history.
+reports:
+  auto_commit: false
+  auto_commit_skip_on_degraded: true
+
+# When main.py is launched without --once, it runs as a long-lived process and
+# fires the daily pipeline at the time below. NYSE closes 16:00 America/New_York,
+# i.e. 20:00 UTC (winter) / 21:00 UTC (summer / DST). The default is 22:00 UTC,
+# 1-2h after close, giving yfinance/issuer endpoints time to settle.
+schedule:
+  daily_at: "22:00"          # HH:MM, 24h
+  timezone: "UTC"            # any IANA TZ name (e.g. "America/New_York", "Europe/Berlin")
+  weekdays_only: true        # skip Saturday and Sunday (US equity markets are closed)
+  run_on_startup: false      # if true, fire once immediately when main.py starts, then schedule
+  catch_up_missed: false     # if true and the scheduled time today has already passed when
+                             # main.py starts, fire immediately; otherwise wait until tomorrow
+
+ingest:
+  primary_source: yfinance
+  retry:
+    max_attempts: 4
+    backoff_seconds: [1, 4, 16, 64]
+  stale_threshold_days: 4
+  # Design §1.7: signals are only computed when at least this percentage of the
+  # NYSE-aligned universe (HK-listed symbols excluded — different calendar)
+  # fetched cleanly. Below the gate the run is logged 'degraded' and the daily
+  # pipeline skips signal publication instead of computing on a thinned panel.
+  min_coverage_pct: 90.0
+  # Outlier filter on (high-low)/close. Crypto and commodities routinely make
+  # 25%+ intraday moves that are NOT data errors; a flat 20% cap quarantines
+  # legitimate signal days. Per-class overrides; default applies otherwise.
+  outlier_intraday_pct: 20.0
+  outlier_intraday_pct_by_class:
+    crypto: 50.0
+    commodity_precious: 30.0
+    commodity_industrial: 35.0
+    commodity_energy: 35.0
+
+universe:
+  # Core 18 from instruction.md, mapped to ETFs where the futures/indexes
+  # aren't reliably tickerable on yfinance (DXY -> UUP, copper -> CPER, oil -> USO).
+  equities:
+    - {symbol: SPY, asset_class: equity_us}
+    - {symbol: QQQ, asset_class: equity_us}
+    - {symbol: IWM, asset_class: equity_us}
+    - {symbol: EZU, asset_class: equity_intl}
+    - {symbol: EEM, asset_class: equity_intl}
+    - {symbol: EWJ, asset_class: equity_intl}
+  defensives:
+    - {symbol: GLD, asset_class: commodity_precious}
+    - {symbol: SLV, asset_class: commodity_precious}
+    - {symbol: TLT, asset_class: bond}
+    - {symbol: UUP, asset_class: fx}          # USD index proxy
+    - {symbol: FXF, asset_class: fx}          # Swiss franc
+  growth_sensitive:
+    - {symbol: CPER, asset_class: commodity_industrial}
+    - {symbol: USO,  asset_class: commodity_energy}
+    - {symbol: SMH,  asset_class: equity_sector}
+    - {symbol: XLI,  asset_class: equity_sector}
+    - {symbol: IYT,  asset_class: equity_sector}
+  crypto:
+    - {symbol: BTC-USD, asset_class: crypto}
+    - {symbol: ETH-USD, asset_class: crypto}
+  # US-listed China proxies (no calendar headache — trade on NYSE/NASDAQ).
+  # These power the wishlist's China-vs-US rotation pair and the Greater China
+  # exposure inside the analogue / forecast layers.
+  china_us_listed:
+    - {symbol: KWEB, asset_class: equity_china}     # KraneShares CSI China Internet
+    - {symbol: FXI,  asset_class: equity_china}     # iShares China Large-Cap
+    - {symbol: MCHI, asset_class: equity_china}     # iShares MSCI China
+    - {symbol: ASHR, asset_class: equity_china}     # Xtrackers Harvest CSI 300 (A-shares)
+  # HK-listed individual stocks (per wishlist §15 + user's actual portfolio).
+  # These trade on HKEX, a different calendar from NYSE — bars are stored in
+  # raw_bars but the NYSE-intersected signals panel excludes them. They surface
+  # in the report under "Greater China Holdings" using their own daily/weekly
+  # returns directly.
+  hk_listed:
+    - {symbol: 2800.HK, asset_class: equity_hk}     # Tracker Fund of Hong Kong (HSI ETF)
+    - {symbol: 2828.HK, asset_class: equity_hk}     # Hang Seng China Enterprises (HSCEI)
+    - {symbol: 0700.HK, asset_class: equity_hk}     # Tencent
+    - {symbol: 9988.HK, asset_class: equity_hk}     # Alibaba HK
+    - {symbol: 3690.HK, asset_class: equity_hk}     # Meituan
+    - {symbol: 1810.HK, asset_class: equity_hk}     # Xiaomi
+    - {symbol: 9618.HK, asset_class: equity_hk}     # JD.com HK
+    - {symbol: 9888.HK, asset_class: equity_hk}     # Baidu HK
+    - {symbol: 2318.HK, asset_class: equity_hk}     # Ping An Insurance
+    - {symbol: 0939.HK, asset_class: equity_hk}     # CCB
+    - {symbol: 1398.HK, asset_class: equity_hk}     # ICBC
+    - {symbol: 0388.HK, asset_class: equity_hk}     # HKEX
+    - {symbol: 0005.HK, asset_class: equity_hk}     # HSBC
+    - {symbol: 0883.HK, asset_class: equity_hk}     # CNOOC
+    - {symbol: 0857.HK, asset_class: equity_hk}     # PetroChina
+  # Added in §3 for signal computation (sectors, credit, curve, vol-index)
+  signal_support:
+    - {symbol: "^MOVE", asset_class: vol_index}  # bond market vol index (inverted -> liquidity)
+    - {symbol: IEF,  asset_class: bond}          # curve proxy with TLT
+    - {symbol: HYG,  asset_class: credit}        # high-yield credit
+    - {symbol: LQD,  asset_class: credit}        # IG credit
+    - {symbol: XLK,  asset_class: equity_sector}
+    - {symbol: XLF,  asset_class: equity_sector}
+    - {symbol: XLE,  asset_class: equity_sector}
+    - {symbol: XLV,  asset_class: equity_sector}
+    - {symbol: XLY,  asset_class: equity_sector}
+    - {symbol: XLP,  asset_class: equity_sector}
+    - {symbol: XLU,  asset_class: equity_sector}
+    - {symbol: XLB,  asset_class: equity_sector}
+    - {symbol: XLRE, asset_class: equity_sector}
+    - {symbol: XLC,  asset_class: equity_sector}

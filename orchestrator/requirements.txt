@@ -1,0 +1,6 @@
+# NOTE: the whole repo now installs from the root ../requirements.txt into a
+# single shared .venv. This file is kept only as a record of the orchestrator's
+# own direct deps; you do NOT need to install it separately.
+duckdb>=1.0.0
+pyyaml>=6.0
+requests>=2.31
