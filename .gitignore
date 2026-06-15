@@ -1,0 +1,2 @@
+# Project-local TradingAgents runtime data (logs, cache, decision memory, cost records)
+.tradingagents/

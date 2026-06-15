@@ -1,0 +1,55 @@
+{
+  "_comment": "Settings for measure_run.py. CLI args override these. date: 'today'/null = today, else YYYY-MM-DD (not future). Run a market group with --market hk|us (uses that group's tickers). Ad-hoc: pass tickers positionally. output_language: report language (internal reasoning stays English). Telegram creds come from .env (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID).",
+  "tickers": ["NVDA"],
+  "date": "today",
+  "provider": "deepseek",
+  "deep_think_llm": "deepseek-reasoner",
+  "quick_think_llm": "deepseek-chat",
+  "output_language": "English",
+  "pricing": {
+    "input_per_1m": 0.28,
+    "output_per_1m": 0.42
+  },
+  "markets": {
+    "hk": {
+      "label": "HK market",
+      "tickers": ["02800.HK"],
+      "timezone": "Asia/Hong_Kong",
+      "open_time": "09:30",
+      "premarket_lead_min": 60
+    },
+    "us": {
+      "label": "US market",
+      "_gold_note": "GLD = SPDR Gold Shares, a gold-price ETF proxy. Spot/futures symbols like XAUUSD=X and GC=F are rejected by the framework's ticker path hardening. Swap to 2840.HK (HK-listed gold ETF) if you want gold in the HK run instead.",
+      "tickers": ["FIG", "SPCX", "AMD", "NVDA", "GLD"],
+      "timezone": "America/New_York",
+      "open_time": "09:30",
+      "premarket_lead_min": 60
+    }
+  },
+  "telegram": {
+    "enabled": true,
+    "allowlist_chat_ids": [],
+    "cooldown_seconds": 120,
+    "daily_cap": 50,
+    "poll_timeout_seconds": 50
+  },
+  "schedule": {
+    "_comment": "Used with --schedule. The digest fires 1h before each open, in each run's own timezone (DST handled). calendar (pandas-market-calendars, optional) makes firing holiday-aware; weekdays_only is the fallback.",
+    "weekdays_only": true,
+    "runs": [
+      {"label": "HK pre-open", "time": "08:30", "timezone": "Asia/Hong_Kong", "calendar": "XHKG"},
+      {"label": "US pre-open", "time": "08:30", "timezone": "America/New_York", "calendar": "XNYS"}
+    ]
+  },
+  "macro": {
+    "_comment": "Market-wide macro/crash-risk context. fred_api_key (or --fred-key / FRED_API_KEY env) enables HY OAS + Sahm Rule. manual_overrides: optional hand-entered values for the most fragile MONTHLY scrapes (a hand value stays valid for weeks); leave null to scrape live. Set as_of to the date you entered them so a stale value shows ' · manual (as of …)' in the report.",
+    "fred_api_key": null,
+    "manual_overrides": {
+      "ism_pmi": null,
+      "ism_pmi_below_50_months": 0,
+      "margin_debt_yoy_pct": null,
+      "as_of": null
+    }
+  }
+}

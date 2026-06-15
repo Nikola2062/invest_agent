@@ -1,0 +1,32 @@
+# Your book — the single source of truth for the position-aware overlay (Phase 1).
+# holdings: what you own; watchlist: names you track but don't hold; cash: dry powder.
+# The overlay turns each per-name rating into a HOLDER action (hold/trim/exit or
+# buy/wait/avoid) using cost basis, P&L and concentration. Edit freely.
+holdings:
+  - symbol: FIG
+    market: US
+    shares: 2000
+    cost_basis_per_share: 55.0
+    currency: USD
+    purchase_date: null
+    notes: Figma
+  - symbol: 0700.HK
+    market: HK
+    shares: 20000
+    cost_basis_per_share: 500.0
+    currency: HKD
+    purchase_date: null
+    notes: Tencent
+
+watchlist:
+  US:
+    - {symbol: NVDA, notes: ""}
+    - {symbol: AMD, notes: ""}
+    - {symbol: GOOGL, notes: ""}
+    - {symbol: SPCX, notes: "SpaceX — Nasdaq IPO 2026-06-12"}
+  HK:
+    - {symbol: 9988.HK, notes: ""}
+
+cash:
+  - {currency: USD, amount: 0}
+  - {currency: HKD, amount: 0}

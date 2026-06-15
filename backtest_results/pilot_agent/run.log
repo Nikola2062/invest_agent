@@ -1,0 +1,291 @@
+Backtest: 5 tickers × 12 rebalance dates = 60 decisions
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-01-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-01-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-01-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-01-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-01-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-01-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-01-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-01-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-01-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-01-01.
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-02-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-02-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-02-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-02-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-02-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-02-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-02-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-02-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-02-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-02-01.
+  recorded 10 new decisions…
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-03-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-03-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-03-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-03-01.
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-03-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-03-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-03-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-03-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-03-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-03-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-03-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-03-01.
+Research Manager: structured-output invocation failed ('NoneType' object has no attribute 'recommendation'); retrying once as free text
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-04-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-04-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-04-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-04-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-04-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-04-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-04-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-04-01.
+Trader: structured-output invocation failed ('NoneType' object has no attribute 'action'); retrying once as free text
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-04-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-04-01.
+  recorded 20 new decisions…
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-05-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-05-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-05-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-05-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-05-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-05-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-05-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-05-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-05-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-05-01.
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-06-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-06-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-06-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-06-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-06-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-06-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-06-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-06-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-06-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-06-01.
+  recorded 30 new decisions…
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-07-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-07-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-07-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-07-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-07-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-07-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-07-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-07-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-07-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-07-01.
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-08-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-08-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-08-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-08-01.
+$JNJ: possibly delisted; no price data found  (1d 2024-08-01 -> 2024-08-01)
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-08-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-08-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-08-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-08-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-08-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-08-01.
+  recorded 40 new decisions…
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-09-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-09-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-09-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-09-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-09-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-09-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-09-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-09-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-09-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-09-01.
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-10-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-10-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-10-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-10-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-10-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-10-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-10-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-10-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-10-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-10-01.
+  recorded 50 new decisions…
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-11-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-11-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-11-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-11-01.
+Trader: structured-output invocation failed ('NoneType' object has no attribute 'action'); retrying once as free text
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-11-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-11-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-11-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-11-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-11-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-11-01.
+Reddit fetch failed for r/wallstreetbets · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AAPL: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AAPL: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-12-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-12-01.
+Reddit fetch failed for r/wallstreetbets · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JPM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JPM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-12-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-12-01.
+Reddit fetch failed for r/wallstreetbets · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · JNJ: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · JNJ: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-12-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-12-01.
+Reddit fetch failed for r/wallstreetbets · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · WMT: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · WMT: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-12-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-12-01.
+Reddit fetch failed for r/wallstreetbets · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · XOM: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · XOM: HTTP Error 403: Blocked
+PIT leakage risk: yfinance.get_fundamentals called with as_of=2024-12-01 but provider does not guarantee point-in-time correctness for this method. Result may contain information that was not public on 2024-12-01.
+  recorded 60 new decisions…
+✓ 60 decisions in backtest_results/pilot_agent/decisions_agent.jsonl
+
+                      Backtest tearsheet — agent strategy                       
+
+Period: 2024-01-01 → 2024-12-31 Universe (5): AAPL, JPM, JNJ, WMT, XOM          
+Benchmark: SPY                                                                  
+
+Performance                                                                     
+
+                                 
+ Metric                  Value   
+ ─────────────────────────────── 
+ Periods                 11      
+ Total return            +0.58%  
+ CAGR                    +0.64%  
+ Volatility (ann.)       +0.44%  
+ Sharpe                  1.46    
+ Sortino                 21.04   
+ Max drawdown            -0.03%  
+ Calmar                  22.01   
+ Hit rate (periods +)    +36.36% 
+ Benchmark total return  +28.92% 
+ Alpha vs benchmark      -28.33% 
+ Information ratio       -2.73   
+                                 
+
+Per-ticker breakdown                                                            
+
+                                           
+ Ticker  Trades  Hit rate  Mean fwd return 
+ ───────────────────────────────────────── 
+ AAPL         8   +37.50%           +0.46% 
+ JNJ          4   +50.00%           +1.62% 
+ WMT          4   +75.00%           +6.48% 
+ XOM          4   +25.00%           +4.22% 
+ JPM          2   +50.00%           +1.57% 
+                                           
+
+✓ Tearsheet: backtest_results/pilot_agent/tearsheet_agent.md
