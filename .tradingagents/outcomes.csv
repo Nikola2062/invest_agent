@@ -1,0 +1,7 @@
+ticker,trade_date,rating,sector,benchmark,raw_5d,alpha_5d,raw_21d,alpha_21d,raw_63d,alpha_63d
+02800.HK,2026-06-16,Hold,Unknown,SPY,,,,,,
+FIG,2026-06-16,Underweight,Unknown,SPY,,,,,,
+SPCX,2026-06-16,Underweight,Unknown,SPY,,,,,,
+AMD,2026-06-16,Underweight,Unknown,SPY,,,,,,
+NVDA,2026-06-16,Hold,Unknown,SPY,,,,,,
+GLD,2026-06-16,Underweight,Unknown,SPY,,,,,,
