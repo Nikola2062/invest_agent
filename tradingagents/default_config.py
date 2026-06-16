@@ -15,6 +15,7 @@ _ENV_OVERRIDES = {
     "TRADINGAGENTS_OUTPUT_LANGUAGE":      "output_language",
     "TRADINGAGENTS_MAX_DEBATE_ROUNDS":    "max_debate_rounds",
     "TRADINGAGENTS_MAX_RISK_ROUNDS":      "max_risk_discuss_rounds",
+    "TRADINGAGENTS_DEBATE_REPORT_MODE":   "debate_report_mode",
     "TRADINGAGENTS_CHECKPOINT_ENABLED":   "checkpoint_enabled",
     "TRADINGAGENTS_BENCHMARK_TICKER":     "benchmark_ticker",
 }
@@ -101,11 +102,21 @@ DEFAULT_CONFIG = _apply_env_overrides({
     "max_risk_discuss_rounds": 1,
     "max_recur_limit": 100,
     "analyst_concurrency_limit": 1,
+    # Debate context size. The five debate voices (bull, bear, aggressive,
+    # neutral, conservative) re-ingest all four analyst reports on every turn,
+    # which is the single largest repeated input-token cost per run.
+    #   "compact" (default): each report is condensed to debate_report_max_chars
+    #     before being placed in debate prompts — large token saving, minimal
+    #     analytical loss (opening thesis + closing summary/recommendation kept).
+    #   "full": legacy behavior — entire reports in every debate prompt.
+    # Either way the full reports are preserved in state and the HTML report.
+    "debate_report_mode": "compact",      # "compact" | "full"
+    "debate_report_max_chars": 1800,      # per-report budget when mode == "compact"
     # News / data fetching parameters
     # Increase for longer lookback strategies or to broaden macro coverage;
     # decrease to reduce token usage in agent prompts.
-    "news_article_limit": 20,             # max articles per ticker (ticker-news)
-    "global_news_article_limit": 10,      # max articles for global/macro news
+    "news_article_limit": 10,             # max articles per ticker (ticker-news)
+    "global_news_article_limit": 5,       # max articles for global/macro news
     "global_news_lookback_days": 7,       # macro news lookback window
     # Search queries used by get_global_news for macro headlines. Extend or
     # replace to broaden geographic / sector coverage.

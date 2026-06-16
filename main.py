@@ -354,7 +354,20 @@ def make_on_command(cfg, pricing, args):
 
 def _graph_config(cfg):
     from tradingagents.default_config import DEFAULT_CONFIG
-    return DEFAULT_CONFIG.copy()
+    config = DEFAULT_CONFIG.copy()
+    # Let the config file tune a whitelist of graph / cost knobs. Unknown keys
+    # are ignored; anything absent falls back to the built-in default.
+    for key in (
+        "debate_report_mode",        # "compact" (cheap) | "full" (detailed)
+        "debate_report_max_chars",   # per-report budget in compact mode
+        "max_debate_rounds",
+        "max_risk_discuss_rounds",
+        "news_article_limit",
+        "global_news_article_limit",
+    ):
+        if key in cfg:
+            config[key] = cfg[key]
+    return config
 
 
 def _set_env_defaults(provider, deep_llm, quick_llm, output_language):

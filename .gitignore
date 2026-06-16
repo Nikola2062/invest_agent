@@ -1,2 +1,8 @@
 # Project-local TradingAgents runtime data (logs, cache, decision memory, cost records)
-.tradingagents/
+.venv/
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/

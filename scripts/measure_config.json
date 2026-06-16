@@ -6,6 +6,9 @@
   "deep_think_llm": "deepseek-reasoner",
   "quick_think_llm": "deepseek-chat",
   "output_language": "English",
+  "_cost_note": "debate_report_mode: 'compact' condenses each analyst report (to debate_report_max_chars) before the 5 debate voices re-read them every turn — big input-token saving, full reports still kept in the HTML. Set 'full' to feed debaters the entire detailed reports (legacy, pricier).",
+  "debate_report_mode": "compact",
+  "debate_report_max_chars": 1800,
   "pricing": {
     "input_per_1m": 0.28,
     "output_per_1m": 0.42

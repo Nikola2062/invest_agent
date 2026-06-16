@@ -1,4 +1,7 @@
-from tradingagents.agents.utils.agent_utils import get_language_instruction
+from tradingagents.agents.utils.agent_utils import (
+    get_debate_reports,
+    get_language_instruction,
+)
 
 
 def create_aggressive_debator(llm):
@@ -10,10 +13,12 @@ def create_aggressive_debator(llm):
         current_conservative_response = risk_debate_state.get("current_conservative_response", "")
         current_neutral_response = risk_debate_state.get("current_neutral_response", "")
 
-        market_research_report = state["market_report"]
-        sentiment_report = state["sentiment_report"]
-        news_report = state["news_report"]
-        fundamentals_report = state["fundamentals_report"]
+        (
+            market_research_report,
+            sentiment_report,
+            news_report,
+            fundamentals_report,
+        ) = get_debate_reports(state)
 
         trader_decision = state["trader_investment_plan"]
 

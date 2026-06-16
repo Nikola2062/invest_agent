@@ -69,7 +69,10 @@ def md_to_html(md: str) -> str:
             for r in rows:
                 cells = (r + [""] * len(header))[: len(header)]
                 body += "<tr>" + "".join(f"<td>{_inline(c)}</td>" for c in cells) + "</tr>"
-            out.append(f"<table><thead><tr>{thead}</tr></thead><tbody>{body}</tbody></table>")
+            out.append(
+                f"<div class='table-wrap'><table><thead><tr>{thead}</tr></thead>"
+                f"<tbody>{body}</tbody></table></div>"
+            )
             continue
 
         if not stripped:
@@ -230,10 +233,10 @@ def _macro_section(macro) -> str:
       </div>
       <p class="muted">Strategic backdrop, not a trading trigger — valuation gauges
       (CAPE, Buffett) signal multi-year expected return, not days-to-weeks timing.</p>
-      <table class="macro-table">
+      <div class="table-wrap"><table class="macro-table">
         <thead><tr><th>Indicator</th><th>Value</th><th>Horizon</th><th>Threshold</th><th>Light</th></tr></thead>
         <tbody>{rows}</tbody>
-      </table>
+      </table></div>
       <p><strong>S&amp;P 500:</strong> {html.escape(sp_line)}</p>
       <p><strong>Action:</strong> {html.escape(macro.get('action', ''))}</p>
       <p class="muted">US market context — shared across all tickers in this batch. The
@@ -379,6 +382,8 @@ details.card .sub {{ color:var(--muted); font-weight:400; font-size:12px; }}
 .card-body {{ padding:4px 22px 18px; border-top:1px solid var(--line); }}
 .card-body h1,.card-body h2,.card-body h3,.card-body h4 {{ line-height:1.3; margin:18px 0 8px; }}
 .card-body h1 {{ font-size:20px; }} .card-body h2 {{ font-size:18px; }} .card-body h3 {{ font-size:16px; }}
+.table-wrap {{ overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%; margin:12px 0; }}
+.table-wrap table,.table-wrap .macro-table {{ margin:0; }}
 .card-body table {{ border-collapse:collapse; width:100%; margin:12px 0; font-size:13.5px; }}
 .card-body th,.card-body td {{ border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }}
 .card-body thead th {{ background:#222736; }}
@@ -396,6 +401,18 @@ details.card .sub {{ color:var(--muted); font-weight:400; font-size:12px; }}
 .macro-table tr.macro-group td {{ background:#222736; font-weight:600; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; font-size:11.5px; }}
 .muted {{ color:var(--muted); }}
 footer {{ color:var(--muted); font-size:12px; text-align:center; padding:24px; border-top:1px solid var(--line); }}
+@media (max-width:640px) {{
+  header.top {{ padding:20px 16px 16px; }}
+  header.top h1 {{ font-size:19px; }}
+  .wrap {{ padding:18px 16px 48px; }}
+  .totals {{ gap:12px; }}
+  .totals .t {{ min-width:0; flex:1 1 calc(50% - 12px); }}
+  .sumgrid {{ grid-template-columns:1fr; }}
+  .panel-head h2 {{ font-size:21px; }}
+  .card-body {{ padding:4px 14px 16px; }}
+  details.card > summary {{ padding:12px 14px; }}
+  .card-body table,.macro-table {{ min-width:480px; font-size:13px; }}
+}}
 </style>
 </head>
 <body>
@@ -424,7 +441,10 @@ footer {{ color:var(--muted); font-size:12px; text-align:center; padding:24px; b
     if (panel) panel.classList.add('active');
     var tab = document.querySelector('.tab[data-target="' + idx + '"]');
     if (tab) tab.classList.add('active');
-    window.scrollTo({{top:0, behavior:'smooth'}});
+    // Anchor on the ticker tabs (or the panel itself) so switching tickers keeps
+    // the selected content in view instead of jumping back to the page top.
+    var anchor = document.querySelector('.tabs') || panel;
+    if (anchor) anchor.scrollIntoView({{behavior:'smooth', block:'start'}});
   }}
   document.querySelectorAll('.tab,[data-target]').forEach(el =>
     el.addEventListener('click', () => activate(el.dataset.target)));
