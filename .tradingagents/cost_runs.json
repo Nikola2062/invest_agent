@@ -334,5 +334,19 @@
     "tokens_total": 155904,
     "est_cost_usd": 0.0466,
     "decision": "Underweight"
+  },
+  {
+    "timestamp": "2026-06-17T19:21:07.509272+00:00",
+    "ticker": "FIG",
+    "date": "2026-06-17",
+    "provider": "deepseek",
+    "elapsed_seconds": 303.5,
+    "llm_calls": 20,
+    "tool_calls": 0,
+    "tokens_in": 104059,
+    "tokens_out": 24007,
+    "tokens_total": 128066,
+    "est_cost_usd": 0.0392,
+    "decision": "Underweight"
   }
 ]

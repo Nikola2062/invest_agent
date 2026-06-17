@@ -39,7 +39,7 @@ The debate among risk analysts is genuinely balanced, but the weight of evidence
 
 <!-- ENTRY_END -->
 
-[2026-06-16 | FIG | Underweight | pending]
+[2026-06-16 | FIG | Underweight | +7.6% | +8.2% | 1d]
 
 DECISION:
 **Rating**: Underweight
@@ -51,6 +51,9 @@ DECISION:
 **Price Target**: 16.5
 
 **Time Horizon**: 3-6 months
+
+REFLECTION:
+Directional call was correct: alpha of +8.2% outperformed the market. The thesis core held — SBC dilution (55% share count increase) and the broken technical picture (dead cat bounce fully retraced) outweighed strong revenue growth and a debt-free balance sheet. Lesson: when SBC-driven dilution exceeds revenue growth, it is a structural destroyer of shareholder value, not a temporary accounting quirk.
 
 <!-- ENTRY_END -->
 

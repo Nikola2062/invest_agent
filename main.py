@@ -313,6 +313,67 @@ def build_premarket(tickers, date, cfg, pricing, args, *, market_slug=None, labe
     return digest_text, html_path, report_runs, verdicts
 
 
+def build_overview(date, cfg, args):
+    """Cheap, LLM-free pre-market overview: macro + RS rank + regime + per-holding
+    price action + deterministic deep-dive alarms. Returns (text, alarms, macro).
+
+    No ticker runs through the LLM pipeline here — that's what makes it ~$0. The
+    alarms tell the caller which held names warrant an automatic deep-dive."""
+    from tradingagents.portfolio import positions as positions_mod
+    from tradingagents.portfolio import relative_strength as rs
+    from tradingagents.runtime import digest as digest_mod
+
+    book = positions_mod.load_positions(POSITIONS_PATH)
+    held = [h["symbol"] for h in book.get("held", [])]
+    watch = [w["symbol"] for lst in (book.get("watchlist") or {}).values()
+             for w in lst if isinstance(w, dict) and w.get("symbol")]
+    universe = list(dict.fromkeys(held + watch))
+
+    macro = build_macro(cfg, args)
+    macro_level = macro.get("risk_level") if macro else None
+    try:
+        ranking = rs.fetch_and_rank(universe)
+        regime = rs.fetch_regime(universe)
+    except Exception as e:
+        print(f"  [warn] ranking/regime unavailable: {e}")
+        ranking, regime = [], None
+
+    ov = cfg.get("overview") or {}
+    tcfg = positions_mod.TriageConfig(
+        drawdown_alarm_pct=float(ov.get("drawdown_alarm_pct", positions_mod.TriageConfig().drawdown_alarm_pct)),
+        rs_alarm_score=float(ov.get("rs_alarm_score", positions_mod.TriageConfig().rs_alarm_score)),
+    )
+    prices = positions_mod.latest_prices(universe)            # for the digest's P&L vs cost line
+    drawdowns = positions_mod.recent_drawdowns(               # fresh-move alarm signal
+        held, period=ov.get("drawdown_lookback_period", "3mo"))
+    alarms = positions_mod.triage_alarms(book, drawdowns, ranking, regime, macro_level, cfg=tcfg)
+
+    # Per-name dedupe: only (re)deep-dive names whose alarm is new / materially
+    # worse / stale, then cap at max_auto_deep. State persists between fires.
+    dcfg = positions_mod.DedupeConfig(
+        rerun_worsen_pct=float(ov.get("rerun_worsen_pct", positions_mod.DedupeConfig().rerun_worsen_pct)),
+        rerun_after_days=float(ov.get("rerun_after_days", positions_mod.DedupeConfig().rerun_after_days)),
+    )
+    state_path = LOCAL_HOME / "triage_state.json"
+    state = positions_mod.load_triage_state(state_path)
+    now = datetime.now(timezone.utc)
+    fresh, new_state = positions_mod.select_for_deepdive(alarms, state, now, dcfg)
+    running = fresh[: int(ov.get("max_auto_deep", 2))]
+    # Persist only what we'll actually run now (names deferred by the cap stay
+    # "unseen" so they're picked up on a later fire rather than silently dropped).
+    persisted = {**{a["symbol"]: state.get(a["symbol"]) for a in alarms
+                    if state.get(a["symbol"]) is not None},
+                 **{a["symbol"]: new_state[a["symbol"]] for a in running}}
+    positions_mod.save_triage_state(state_path, persisted)
+
+    running_syms = [a["symbol"] for a in running]
+    text = digest_mod.build_overview_digest(date, macro, book, prices, ranking, regime,
+                                            alarms, running_syms=running_syms)
+    print(f"Overview built · {len(alarms)} flagged · {len(running)} auto-deep-dive "
+          f"(dedupe+cap), {len(alarms) - len(running)} deferred")
+    return text, running, macro
+
+
 def send_digest(digest_text, html_path, label, date, cfg):
     """Push the digest text (EN + optional zh) and attach the HTML report."""
     from tradingagents.runtime import bot, translate
@@ -410,12 +471,29 @@ def main(argv):
 
         print(f"\n=== SCHEDULE mode ===  tickers: {', '.join(tickers)}  send={send}  bot={not args.no_bot}")
 
+        ov_mode = (cfg.get("overview") or {}).get("mode", "on_demand")
+
         def on_fire():
             d = datetime.now().strftime("%Y-%m-%d")
-            digest_text, html_path, _, _ = build_premarket(
-                tickers, d, cfg, pricing, args, market_slug=market_slug, label=label)
+            if ov_mode == "full":
+                # Legacy: run the full pipeline on every configured ticker.
+                digest_text, html_path, _, _ = build_premarket(
+                    tickers, d, cfg, pricing, args, market_slug=market_slug, label=label)
+                if send:
+                    send_digest(digest_text, html_path, label, d, cfg)
+                return
+            # On-demand: cheap overview push + auto deep-dive only the names
+            # build_overview selected (dedupe + max_auto_deep already applied).
+            overview_text, deep_targets, macro = build_overview(d, cfg, args)
+            deep_runs = []
+            for a in deep_targets:
+                print(f"  auto deep-dive: {a['symbol']} ({', '.join(a['reasons'])})")
+                runs, _ = run_batch([a["symbol"]], d, _graph_config(cfg), pricing)
+                deep_runs.extend(runs)
+            html_path = (write_html_report(deep_runs, d, market_slug, pricing, macro)
+                         if deep_runs else None)
             if send:
-                send_digest(digest_text, html_path, label, d, cfg)
+                send_digest(overview_text, html_path, label, d, cfg)
 
         if not args.no_bot and os.environ.get("TELEGRAM_BOT_TOKEN"):
             tg = cfg.get("telegram") or {}

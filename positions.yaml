@@ -10,19 +10,11 @@ holdings:
     currency: USD
     purchase_date: null
     notes: Figma
-  - symbol: 0700.HK
-    market: HK
-    shares: 20000
-    cost_basis_per_share: 500.0
-    currency: HKD
-    purchase_date: null
-    notes: Tencent
 
 watchlist:
   US:
     - {symbol: NVDA, notes: ""}
     - {symbol: AMD, notes: ""}
-    - {symbol: GOOGL, notes: ""}
     - {symbol: SPCX, notes: "SpaceX — Nasdaq IPO 2026-06-12"}
   HK:
     - {symbol: 9988.HK, notes: ""}

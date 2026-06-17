@@ -9,6 +9,16 @@
   "_cost_note": "debate_report_mode: 'compact' condenses each analyst report (to debate_report_max_chars) before the 5 debate voices re-read them every turn — big input-token saving, full reports still kept in the HTML. Set 'full' to feed debaters the entire detailed reports (legacy, pricier).",
   "debate_report_mode": "compact",
   "debate_report_max_chars": 1800,
+  "_overview_note": "Scheduled-run mode. 'on_demand' (default): push a cheap LLM-free overview (macro + RS rank + per-holding price action) and auto-run the full pipeline ONLY for held names that trip a deterministic alarm (capped at max_auto_deep); everything else is pulled on demand via the bot (/us TICKER, /hk TICKER) — big cost cut. 'full': legacy behaviour, run the full pipeline on every configured ticker each fire. drawdown_alarm_pct: trip when a holding is this far below its recent HIGH (a fresh-move signal over drawdown_lookback_period, NOT vs cost basis — so chronically underwater names don't trip every day). rs_alarm_score: trip on relative strength this weak. Dedupe (triage_state.json): an alarming name is auto-run again only if a new alarm category appears, its drawdown worsens by >= rerun_worsen_pct points, or rerun_after_days elapse since its last run — so a steady-state alarm goes quiet between fires.",
+  "overview": {
+    "mode": "on_demand",
+    "drawdown_alarm_pct": -8.0,
+    "drawdown_lookback_period": "3mo",
+    "rs_alarm_score": -5.0,
+    "max_auto_deep": 2,
+    "rerun_worsen_pct": 5.0,
+    "rerun_after_days": 5.0
+  },
   "pricing": {
     "input_per_1m": 0.28,
     "output_per_1m": 0.42
@@ -16,7 +26,7 @@
   "markets": {
     "hk": {
       "label": "HK market",
-      "tickers": ["02800.HK"],
+      "tickers": ["2800.HK"],
       "timezone": "Asia/Hong_Kong",
       "open_time": "09:30",
       "premarket_lead_min": 60
