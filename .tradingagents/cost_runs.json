@@ -348,5 +348,19 @@
     "tokens_total": 128066,
     "est_cost_usd": 0.0392,
     "decision": "Underweight"
+  },
+  {
+    "timestamp": "2026-06-17T19:43:56.269782+00:00",
+    "ticker": "AMD",
+    "date": "2026-06-17",
+    "provider": "deepseek",
+    "elapsed_seconds": 256.9,
+    "llm_calls": 20,
+    "tool_calls": 0,
+    "tokens_in": 150725,
+    "tokens_out": 25701,
+    "tokens_total": 176426,
+    "est_cost_usd": 0.053,
+    "decision": "Hold"
   }
 ]

@@ -1,0 +1,23 @@
+nohup: ignoring input
+[scheduler] runs: HK pre-open 08:30 Asia/Hong_Kong [XHKG], US pre-open 08:30 America/New_York [XNYS]
+[bot 19:38:51] online: @TradingAgentBotBot | allowlist=['-5468809785'] | cooldown=120s cap=50/day
+[bot 19:39:37] recv chat=-5468809785: '/us amd'
+[bot 19:39:38]   → analyzing AMD (US, en)
+Reddit fetch failed for r/wallstreetbets · AMD: HTTP Error 403: Blocked
+Reddit fetch failed for r/stocks · AMD: HTTP Error 403: Blocked
+Reddit fetch failed for r/investing · AMD: HTTP Error 403: Blocked
+Portfolio Manager: structured-output invocation failed ('NoneType' object has no attribute 'rating'); retrying once as free text
+[scheduler] startup fire failed: module 'tradingagents.portfolio.positions' has no attribute 'TriageConfig'
+[bot 19:50:13]   → sent report_2026-06-17_us_AMD.html
+[scheduler] 'HK pre-open' fire failed: module 'tradingagents.portfolio.positions' has no attribute 'TriageConfig'
+[bot 01:10:57] getUpdates HTTP 502: 502 Server Error: Bad Gateway for url: https://api.telegram.org/bot8852188261:AAFxFrD3stGU80LDsRJuU6ssgwwx9fQsTYM/getUpdates; backing off 5s
+[bot 01:12:02] getUpdates error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=60); retrying in 5s
+[bot 04:35:56] getUpdates error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); retrying in 5s
+[scheduler] 'US pre-open' fire failed: module 'tradingagents.portfolio.positions' has no attribute 'TriageConfig'
+[scheduler] 'HK pre-open' 2026-06-19 — XHKG closed, skipped
+[bot 01:10:58] getUpdates HTTP 502: 502 Server Error: Bad Gateway for url: https://api.telegram.org/bot8852188261:AAFxFrD3stGU80LDsRJuU6ssgwwx9fQsTYM/getUpdates; backing off 5s
+[bot 01:12:03] getUpdates error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=60); retrying in 5s
+[scheduler] 'US pre-open' 2026-06-19 — XNYS closed, skipped
+[scheduler] 'HK pre-open' 2026-06-20 — XHKG closed, skipped
+[bot 01:11:00] getUpdates HTTP 502: 502 Server Error: Bad Gateway for url: https://api.telegram.org/bot8852188261:AAFxFrD3stGU80LDsRJuU6ssgwwx9fQsTYM/getUpdates; backing off 5s
+[bot 01:12:06] getUpdates error: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=60); retrying in 5s

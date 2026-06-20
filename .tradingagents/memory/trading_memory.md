@@ -72,7 +72,7 @@ DECISION:
 
 <!-- ENTRY_END -->
 
-[2026-06-16 | AMD | Underweight | pending]
+[2026-06-16 | AMD | Underweight | +0.9% | +2.4% | 1d]
 
 DECISION:
 **Final Trading Decision: AMD (Underweight)**
@@ -100,6 +100,9 @@ The **Neutral Analyst’s** calibrated middle path—trimming 15–20% now—is 
 AMD remains a quality company with real AI tailwinds, but the current price embeds unrealistic perfection. Trimming 25–30% reduces portfolio beta and preserves capital for a re-entry at $420–450 (near the 50-day SMA). The remaining 70–75% position still allows participation if the stock reaches $600, but with a disciplined stop to cap losses. This decision protects against asymmetric downside while respecting AMD’s long-term potential.
 
 **Final Instruction:** Execute the trim at $560–580 if the bounce materializes this week; if not, adjust using the ATR and MACD signals. No new longs until a clear pullback to support.
+
+REFLECTION:
+The directional call was correct, with alpha of +2.4% against SPY, though the raw return of +0.9% was modest. The valuation and technical thesis held—PEG of 1.23 and MACD divergence signaled risk that materialized as a partial pullback after the peace-deal gap. Lesson: When technical deterioration (MACD divergence) and extreme valuation (124x trailing FCF) align, trimming into a bounce is warranted even if the fundamental narrative remains intact.
 
 <!-- ENTRY_END -->
 

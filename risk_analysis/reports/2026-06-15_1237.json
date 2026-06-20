@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-06-15T12:37:01",
+  "date": "2026-06-15",
+  "indicators": [
+    {
+      "name": "Shiller CAPE",
+      "value": 41.43,
+      "display": "41.43",
+      "threshold": ">30 Red / 20-30 Yellow",
+      "light": {
+        "emoji": "\ud83d\udd34",
+        "label": "Red"
+      }
+    },
+    {
+      "name": "Buffett Indicator",
+      "value": 219.0,
+      "display": "219%",
+      "threshold": ">150% Red / 100-150% Yellow",
+      "light": {
+        "emoji": "\ud83d\udd34",
+        "label": "Red"
+      }
+    },
+    {
+      "name": "10Y-2Y Spread",
+      "value": 0.39000000000000057,
+      "display": "+0.39% (06/12/2026)",
+      "threshold": "<0 Red / 0-0.50% Yellow",
+      "light": {
+        "emoji": "\ud83d\udfe1",
+        "label": "Yellow"
+      }
+    },
+    {
+      "name": "Margin Debt YoY",
+      "value": 53.3441576000696,
+      "display": "+53.34%",
+      "threshold": ">30% Red / 0-30% Yellow",
+      "light": {
+        "emoji": "\ud83d\udd34",
+        "label": "Red"
+      }
+    },
+    {
+      "name": "CNN Fear & Greed",
+      "value": 34.0,
+      "display": "34 (fear)",
+      "threshold": ">75 Red / >90 Deep Red",
+      "light": {
+        "emoji": "\ud83d\udfe2",
+        "label": "Green"
+      }
+    },
+    {
+      "name": "Cboe VIX",
+      "value": 16.6200008392334,
+      "display": "16.62 (2026-06-15)",
+      "threshold": ">30 Red / 25-30 Yellow / 15-25 Green / <15 Yellow",
+      "light": {
+        "emoji": "\ud83d\udfe2",
+        "label": "Green"
+      }
+    },
+    {
+      "name": "HY OAS",
+      "value": null,
+      "display": "N/A (needs fred_api_key)",
+      "threshold": ">6% Red / 4-6% Yellow",
+      "light": {
+        "emoji": "\u26aa",
+        "label": "N/A"
+      }
+    },
+    {
+      "name": "PMI + Sahm Rule",
+      "value": {
+        "pmi": 52.0,
+        "sahm": null,
+        "pmi_below_50_months": 0
+      },
+      "display": "PMI=52.0, Sahm=N/A",
+      "threshold": "PMI<50 (3mo) OR Sahm>0.5",
+      "light": {
+        "emoji": "\ud83d\udfe2",
+        "label": "Green"
+      }
+    }
+  ],
+  "tally": {
+    "red": 3,
+    "yellow": 1,
+    "green": 3
+  },
+  "risk_level": "MEDIUM",
+  "sp500": {
+    "current": 7431.4599609375,
+    "ath": 7609.77978515625,
+    "drawdown_pct": -2.3432980881599663
+  },
+  "action": "HOLD \u2014 do not deploy cash, do not chase."
+}

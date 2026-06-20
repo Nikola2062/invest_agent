@@ -1,0 +1,8 @@
+[P1] Daily pipeline FAILED (1/12 steps) — 2026-06-15
+
+Failed steps: signals
+
+Details:
+  • signals: RuntimeError: insufficient_data: bar coverage 3% of NYSE-aligned universe is below the 90% gate — signals skipped (design §1.7)
+
+ts=2026-06-15
